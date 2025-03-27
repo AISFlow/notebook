@@ -1,4 +1,5 @@
-FROM glcr.b-data.ch/jupyterlab/r/verse:4.4.3 AS files
+FROM glcr.b-data.ch/jupyterlab/r/verse:4.4.3 AS bedrock
+FROM bedrock AS files
 
 USER root
 WORKDIR /files
@@ -110,11 +111,32 @@ RUN set -eux; \
     find /usr/share/fonts/truetype/ -type d -exec chmod 755 {} + && \
     fc-cache -fsv
 
-FROM glcr.b-data.ch/jupyterlab/r/verse:4.4.3 AS base
+FROM bedrock AS layer-cutter
 
 USER root
 
-ENV TZ=Asia/Seoul
+RUN apt-get update && \
+    apt-get install -yq --no-install-recommends \
+        build-essential g++ pkg-config \
+        wget curl git git-lfs openssh-client \
+        unzip zip tar \
+        dumb-init procps htop lsb-release locales jq \
+        vim zsh \
+        pandoc \
+        python-is-python3 \
+        libx11-dev libxkbfile-dev libsecret-1-dev libkrb5-dev \
+        libpq-dev \
+        fonts-dejavu fontconfig fonts-noto-cjk \
+        texlive-lang-korean texlive-lang-chinese texlive-lang-japanese \
+        texlive-full texlive-xetex texlive-fonts-recommended \
+        ko.tex && \
+    locale-gen ko_KR.UTF-8 && \
+    rm -rf /tmp/* \
+        /var/lib/apt/lists/* \
+        ${HOME}/.cache \
+        ${HOME}/.config \
+        ${HOME}/.ipython \
+        ${HOME}/.local
 
 COPY --from=files /files /
 COPY --from=files /usr/share/fonts/truetype /usr/share/fonts/truetype
@@ -127,4 +149,54 @@ RUN sed -i 's|</head>|<link rel="stylesheet" type="text/css" href="{{page_config
     ${HOME}/.cache
 
 ## Switch back to ${NB_USER} to avoid accidental container runs as root
+USER ${NB_USER}
+
+FROM bedrock AS final
+
+USER root
+
+RUN apt-get update && \
+    apt-get install -yq --no-install-recommends \
+        build-essential g++ pkg-config \
+        wget curl git git-lfs openssh-client \
+        unzip zip tar \
+        dumb-init procps htop lsb-release locales jq \
+        vim zsh \
+        pandoc \
+        python-is-python3 \
+        libx11-dev libxkbfile-dev libsecret-1-dev libkrb5-dev \
+        libpq-dev \
+        fonts-dejavu fontconfig fonts-noto-cjk \
+        texlive-lang-korean texlive-lang-chinese texlive-lang-japanese \
+        texlive-full texlive-xetex texlive-fonts-recommended \
+        ko.tex && \
+    locale-gen ko_KR.UTF-8 && \
+    rm -rf /tmp/* \
+        /var/lib/apt/lists/* \
+        ${HOME}/.cache \
+        ${HOME}/.config \
+        ${HOME}/.ipython \
+        ${HOME}/.local
+
+RUN pip install --no-cache-dir \
+        selenium \
+        nbconvert[webpdf] \
+        ipympl \
+        jupyterlab-latex \
+        jupyterlab-katex \
+        ipydatagrid \
+        jupyterlab-language-pack-ko-KR \
+        git+https://github.com/AISFlow/nbconvert.git && \
+    rm -rf /tmp/* \
+        /var/lib/apt/lists/* \
+        ${HOME}/.cache \
+        ${HOME}/.config \
+        ${HOME}/.ipython \
+        ${HOME}/.local
+
+COPY --from=layer-cutter /usr/share/fonts /usr/share/fonts
+COPY --from=layer-cutter /usr/local/share/jupyter/lab/static/assets /usr/local/share/jupyter/lab/static/assets
+COPY --from=layer-cutter /opt/code-server /opt/code-server
+COPY --from=layer-cutter /etc/rstudio/fonts /etc/rstudio/fonts
+
 USER ${NB_USER}
