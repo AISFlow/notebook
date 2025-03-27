@@ -4,7 +4,7 @@ FROM bedrock AS files
 USER root
 WORKDIR /files
 
-COPY assets /files
+COPY --link assets /files
 
 ## Copy custom fonts
 RUN mkdir -p /files/usr/local/share/jupyter/lab/static/assets && \
@@ -102,10 +102,6 @@ RUN set -eux; \
         install_google_font "ibmplexsanskr" "IBMPlexSansKR-SemiBold.ttf" && \
         install_google_font "ibmplexsanskr" "IBMPlexSansKR-Thin.ttf" && \
     \
-    # Install Nanum Gothic Coding fonts
-        install_google_font "nanumgothiccoding" "NanumGothicCoding-Bold.ttf" && \
-        install_google_font "nanumgothiccoding" "NanumGothicCoding-Regular.ttf" && \
-    \
     # Set font permissions and update the cache
     chmod -R 644 /usr/share/fonts/truetype/* && \
     find /usr/share/fonts/truetype/ -type d -exec chmod 755 {} + && \
@@ -121,14 +117,12 @@ RUN apt-get update && \
         wget curl git git-lfs openssh-client \
         unzip zip tar \
         dumb-init procps htop lsb-release locales jq \
-        vim zsh \
-        pandoc \
-        python-is-python3 \
+        pandoc ffmpeg \
         libx11-dev libxkbfile-dev libsecret-1-dev libkrb5-dev \
         libpq-dev \
         fonts-dejavu fontconfig fonts-noto-cjk \
         texlive-lang-korean texlive-lang-chinese texlive-lang-japanese \
-        texlive-full texlive-xetex texlive-fonts-recommended \
+        texlive-xetex texlive-fonts-recommended \
         ko.tex && \
     locale-gen ko_KR.UTF-8 && \
     rm -rf /tmp/* \
@@ -138,8 +132,8 @@ RUN apt-get update && \
         ${HOME}/.ipython \
         ${HOME}/.local
 
-COPY --from=files /files /
-COPY --from=files /usr/share/fonts/truetype /usr/share/fonts/truetype
+COPY --link --from=files /files /
+COPY --link --from=files /usr/share/fonts/truetype /usr/share/fonts/truetype
 
 RUN sed -i 's|</head>|<link rel="stylesheet" type="text/css" href="{{page_config.fullStaticUrl}}/assets/css/korean.css"></head>|g' /usr/local/share/jupyter/lab/static/index.html && \
     sed -i 's|</head>|<link rel="stylesheet" type="text/css" href="{{page_config.fullStaticUrl}}/assets/css/japanese.css"></head>|g' /usr/local/share/jupyter/lab/static/index.html && \
@@ -161,14 +155,12 @@ RUN apt-get update && \
         wget curl git git-lfs openssh-client \
         unzip zip tar \
         dumb-init procps htop lsb-release locales jq \
-        vim zsh \
-        pandoc \
-        python-is-python3 \
+        pandoc ffmpeg \
         libx11-dev libxkbfile-dev libsecret-1-dev libkrb5-dev \
         libpq-dev \
         fonts-dejavu fontconfig fonts-noto-cjk \
         texlive-lang-korean texlive-lang-chinese texlive-lang-japanese \
-        texlive-full texlive-xetex texlive-fonts-recommended \
+        texlive-xetex texlive-fonts-recommended \
         ko.tex && \
     locale-gen ko_KR.UTF-8 && \
     rm -rf /tmp/* \
@@ -194,9 +186,9 @@ RUN pip install --no-cache-dir \
         ${HOME}/.ipython \
         ${HOME}/.local
 
-COPY --from=layer-cutter /usr/share/fonts /usr/share/fonts
-COPY --from=layer-cutter /usr/local/share/jupyter/lab/static/assets /usr/local/share/jupyter/lab/static/assets
-COPY --from=layer-cutter /opt/code-server /opt/code-server
-COPY --from=layer-cutter /etc/rstudio/fonts /etc/rstudio/fonts
+COPY --link --from=layer-cutter /usr/share/fonts /usr/share/fonts
+COPY --link --from=layer-cutter /usr/local/share/jupyter/lab/static/assets /usr/local/share/jupyter/lab/static/assets
+COPY --link --from=layer-cutter /opt/code-server /opt/code-server
+COPY --link --from=layer-cutter /etc/rstudio/fonts /etc/rstudio/fonts
 
 USER ${NB_USER}
