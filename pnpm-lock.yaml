@@ -1,0 +1,110 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+  .:
+    devDependencies:
+      '@fontsource/nanum-gothic-coding':
+        specifier: ^5.2.5
+        version: 5.2.5
+      '@fontsource/noto-sans':
+        specifier: ^5.2.6
+        version: 5.2.6
+      '@fontsource/noto-sans-jp':
+        specifier: ^5.2.5
+        version: 5.2.5
+      '@fontsource/noto-sans-kr':
+        specifier: ^5.2.5
+        version: 5.2.5
+      '@fontsource/noto-serif':
+        specifier: ^5.2.6
+        version: 5.2.6
+      '@fontsource/noto-serif-jp':
+        specifier: ^5.2.5
+        version: 5.2.5
+      '@fontsource/noto-serif-kr':
+        specifier: ^5.2.5
+        version: 5.2.5
+      pretendard:
+        specifier: ^1.3.9
+        version: 1.3.9
+      pretendard-jp:
+        specifier: ^1.3.9
+        version: 1.3.9
+
+packages:
+  '@fontsource/nanum-gothic-coding@5.2.5':
+    resolution:
+      {
+        integrity: sha512-4FJqRoYBwmGEc6iF/7wANuEVMfmXlqyGUgPVCMWgSoQBppoBw0z4I2pP/Ke1qTFKOI64Rng+5w0AycoiVJizyw==
+      }
+
+  '@fontsource/noto-sans-jp@5.2.5':
+    resolution:
+      {
+        integrity: sha512-ISoJUQlsuSo4y56P+eJD+g022BRAF1BC2uCyEFGRsob0g8VvQAoWNMlWh+P0VQw68QzZHHj41zRzeRFpzAdA7w==
+      }
+
+  '@fontsource/noto-sans-kr@5.2.5':
+    resolution:
+      {
+        integrity: sha512-9swPyua410J00z+GhemPKK/StWdiW07dchS9JcskesdQrhnPBLD6zVQtQsrj+ZPXTFBftbcrMlWFsWhmFn6S9w==
+      }
+
+  '@fontsource/noto-sans@5.2.6':
+    resolution:
+      {
+        integrity: sha512-46D39T1/QJ16LSbCTaNjjrGS6Y69FMLS9FeHKsrXSQg15Z2MFqmlnNMpURx2l6Sr3x9t9EVdr3CAkHnZyvea+w==
+      }
+
+  '@fontsource/noto-serif-jp@5.2.5':
+    resolution:
+      {
+        integrity: sha512-SL1XItZarPv+3KXo/D0Xa8hXChZN7kkuWuAqrRqilWLn/UKbCPIPoDr/rnbqmVMlCGzshX7PAPR+FW1ka5oKIw==
+      }
+
+  '@fontsource/noto-serif-kr@5.2.5':
+    resolution:
+      {
+        integrity: sha512-hF43MqdaUbpE12UINLn3pl0G1bAI43TJJueJ2wiovWak8zM1ej1ckV89pBA5VcTTKjN0iocGWKQ/HC+TeJ5ugQ==
+      }
+
+  '@fontsource/noto-serif@5.2.6':
+    resolution:
+      {
+        integrity: sha512-mEGeD/duOwgEJooUsXpdCz3WdBJBfm7LEP2XQz/OSBXxj/GVwisULiOH2B7oL2tLBT6EGKTzZfmJAo6ZzOG0+w==
+      }
+
+  pretendard-jp@1.3.9:
+    resolution:
+      {
+        integrity: sha512-F00fRLyHa9IQh80hj80Z3wEDamD1gFStFKY2yQUdugQp+54mk7LEEuB3uRxgWk2EMLvigr2Zc34hKTe2X9okuQ==
+      }
+
+  pretendard@1.3.9:
+    resolution:
+      {
+        integrity: sha512-PaQAADyLY5v4kYFwkpSJHbSSYIkiriY/1xXw75TKoZ9UQQqeU+tvP05yTdZAWibiIYoo8ZKtRv8PM7w0IaywSw==
+      }
+
+snapshots:
+  '@fontsource/nanum-gothic-coding@5.2.5': {}
+
+  '@fontsource/noto-sans-jp@5.2.5': {}
+
+  '@fontsource/noto-sans-kr@5.2.5': {}
+
+  '@fontsource/noto-sans@5.2.6': {}
+
+  '@fontsource/noto-serif-jp@5.2.5': {}
+
+  '@fontsource/noto-serif-kr@5.2.5': {}
+
+  '@fontsource/noto-serif@5.2.6': {}
+
+  pretendard-jp@1.3.9: {}
+
+  pretendard@1.3.9: {}
