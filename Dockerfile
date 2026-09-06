@@ -1,4 +1,4 @@
-FROM glcr.b-data.ch/jupyterlab/r/verse:4.4.3 AS bedrock
+FROM glcr.b-data.ch/jupyterlab/r/verse:4.6.1 AS bedrock
 FROM bedrock AS files
 
 USER root
