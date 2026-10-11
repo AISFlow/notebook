@@ -5,29 +5,30 @@ settings:
   excludeLinksFromLockfile: false
 
 importers:
+
   .:
     devDependencies:
       '@fontsource/nanum-gothic-coding':
         specifier: ^5.2.5
-        version: 5.2.5
+        version: 5.3.0
       '@fontsource/noto-sans':
         specifier: ^5.2.6
-        version: 5.2.6
+        version: 5.3.0
       '@fontsource/noto-sans-jp':
         specifier: ^5.2.5
-        version: 5.2.5
+        version: 5.3.1
       '@fontsource/noto-sans-kr':
         specifier: ^5.2.5
-        version: 5.2.5
+        version: 5.3.1
       '@fontsource/noto-serif':
         specifier: ^5.2.6
-        version: 5.2.6
+        version: 5.3.0
       '@fontsource/noto-serif-jp':
         specifier: ^5.2.5
-        version: 5.2.5
+        version: 5.3.1
       '@fontsource/noto-serif-kr':
         specifier: ^5.2.5
-        version: 5.2.5
+        version: 5.3.1
       pretendard:
         specifier: ^1.3.9
         version: 1.3.9
@@ -36,74 +37,49 @@ importers:
         version: 1.3.9
 
 packages:
-  '@fontsource/nanum-gothic-coding@5.2.5':
-    resolution:
-      {
-        integrity: sha512-4FJqRoYBwmGEc6iF/7wANuEVMfmXlqyGUgPVCMWgSoQBppoBw0z4I2pP/Ke1qTFKOI64Rng+5w0AycoiVJizyw==
-      }
 
-  '@fontsource/noto-sans-jp@5.2.5':
-    resolution:
-      {
-        integrity: sha512-ISoJUQlsuSo4y56P+eJD+g022BRAF1BC2uCyEFGRsob0g8VvQAoWNMlWh+P0VQw68QzZHHj41zRzeRFpzAdA7w==
-      }
+  '@fontsource/nanum-gothic-coding@5.3.0':
+    resolution: {integrity: sha512-1xUOE+ro+F1J5lYw+0WwMbhesK85JCjbAP3/rOGHB3DbZI2/s0dR4WHSuTcag1uJAfT8ozH9B50L88tMn4eFkw==}
 
-  '@fontsource/noto-sans-kr@5.2.5':
-    resolution:
-      {
-        integrity: sha512-9swPyua410J00z+GhemPKK/StWdiW07dchS9JcskesdQrhnPBLD6zVQtQsrj+ZPXTFBftbcrMlWFsWhmFn6S9w==
-      }
+  '@fontsource/noto-sans-jp@5.3.1':
+    resolution: {integrity: sha512-9NNBB/M9PextLYVXGSfIaLZsPnrt5UDw8g2B6T0M775H2yb/oekApSjuS1XKOP7FPcMMEnTavR5rJGDM66qKtA==}
 
-  '@fontsource/noto-sans@5.2.6':
-    resolution:
-      {
-        integrity: sha512-46D39T1/QJ16LSbCTaNjjrGS6Y69FMLS9FeHKsrXSQg15Z2MFqmlnNMpURx2l6Sr3x9t9EVdr3CAkHnZyvea+w==
-      }
+  '@fontsource/noto-sans-kr@5.3.1':
+    resolution: {integrity: sha512-aKnPug5P6zBHaiLbGEVNyBQesyOeEUYl6C3Xedb00xO3iAHJZPQs2JOsPNVqHanKSVe1fTVmTPuYIao4noImXw==}
 
-  '@fontsource/noto-serif-jp@5.2.5':
-    resolution:
-      {
-        integrity: sha512-SL1XItZarPv+3KXo/D0Xa8hXChZN7kkuWuAqrRqilWLn/UKbCPIPoDr/rnbqmVMlCGzshX7PAPR+FW1ka5oKIw==
-      }
+  '@fontsource/noto-sans@5.3.0':
+    resolution: {integrity: sha512-fBCog2PY7DiVVTEEqtI/Qdinx/knobHYfoGpjFXdfBX5RoJaBp1Prw2G75p0OIsdlMZg3cLo0c+YbIUYOxnQJw==}
 
-  '@fontsource/noto-serif-kr@5.2.5':
-    resolution:
-      {
-        integrity: sha512-hF43MqdaUbpE12UINLn3pl0G1bAI43TJJueJ2wiovWak8zM1ej1ckV89pBA5VcTTKjN0iocGWKQ/HC+TeJ5ugQ==
-      }
+  '@fontsource/noto-serif-jp@5.3.1':
+    resolution: {integrity: sha512-ewMVFXmG1Ip5u1Po1E1M3qqm8hsFqja0/26vkoaNylPXW9pnmEcBREqXxp+Fs03wpmhICE6qyYBN2bbfNtsR9Q==}
 
-  '@fontsource/noto-serif@5.2.6':
-    resolution:
-      {
-        integrity: sha512-mEGeD/duOwgEJooUsXpdCz3WdBJBfm7LEP2XQz/OSBXxj/GVwisULiOH2B7oL2tLBT6EGKTzZfmJAo6ZzOG0+w==
-      }
+  '@fontsource/noto-serif-kr@5.3.1':
+    resolution: {integrity: sha512-xtsAgK4S4MjPllHRSAFaMiB7xnFb8Nlhx47uPaD/qvyTP5WgRICNawZmwGzLVshCyA/QmydSVzA9kWF8otycpQ==}
+
+  '@fontsource/noto-serif@5.3.0':
+    resolution: {integrity: sha512-ZrMzjuQlBIcw+qma1slZQdU3YDJvrjLG+9CWU1bxSf3YTkucwqd3EYa/Kfo4Ts19w8IMTGAmtOE3d6wWlgnBtA==}
 
   pretendard-jp@1.3.9:
-    resolution:
-      {
-        integrity: sha512-F00fRLyHa9IQh80hj80Z3wEDamD1gFStFKY2yQUdugQp+54mk7LEEuB3uRxgWk2EMLvigr2Zc34hKTe2X9okuQ==
-      }
+    resolution: {integrity: sha512-F00fRLyHa9IQh80hj80Z3wEDamD1gFStFKY2yQUdugQp+54mk7LEEuB3uRxgWk2EMLvigr2Zc34hKTe2X9okuQ==}
 
   pretendard@1.3.9:
-    resolution:
-      {
-        integrity: sha512-PaQAADyLY5v4kYFwkpSJHbSSYIkiriY/1xXw75TKoZ9UQQqeU+tvP05yTdZAWibiIYoo8ZKtRv8PM7w0IaywSw==
-      }
+    resolution: {integrity: sha512-PaQAADyLY5v4kYFwkpSJHbSSYIkiriY/1xXw75TKoZ9UQQqeU+tvP05yTdZAWibiIYoo8ZKtRv8PM7w0IaywSw==}
 
 snapshots:
-  '@fontsource/nanum-gothic-coding@5.2.5': {}
 
-  '@fontsource/noto-sans-jp@5.2.5': {}
+  '@fontsource/nanum-gothic-coding@5.3.0': {}
 
-  '@fontsource/noto-sans-kr@5.2.5': {}
+  '@fontsource/noto-sans-jp@5.3.1': {}
 
-  '@fontsource/noto-sans@5.2.6': {}
+  '@fontsource/noto-sans-kr@5.3.1': {}
 
-  '@fontsource/noto-serif-jp@5.2.5': {}
+  '@fontsource/noto-sans@5.3.0': {}
 
-  '@fontsource/noto-serif-kr@5.2.5': {}
+  '@fontsource/noto-serif-jp@5.3.1': {}
 
-  '@fontsource/noto-serif@5.2.6': {}
+  '@fontsource/noto-serif-kr@5.3.1': {}
+
+  '@fontsource/noto-serif@5.3.0': {}
 
   pretendard-jp@1.3.9: {}
 
